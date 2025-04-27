@@ -23,4 +23,8 @@
 - I'll seed the program with a set of initial books. This will help get a feel for the program's value when they first view it, which would be more difficult with an empty library. 
 - Beyond the library's default books, each new book will come from the "add book" button and its corresponding form. 
 ## What’s the desired output?
+- The UI described above. 
+- Ability to create new books and dynamically display them in the UI. 
+- Dynamically adjust read status of existing books. 
+- Dynamically remove existing books from the UI. 
 ## Given your inputs, what are the steps necessary to return the desired output?
