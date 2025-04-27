@@ -19,5 +19,8 @@
 - The program has a footer. It includes a reference to the program author. 
 
 ## What inputs will your program have? Will the user enter data or will you get input from somewhere else?
+- The program's inputs are the books, including the relevant data for each one. 
+- I'll seed the program with a set of initial books. This will help get a feel for the program's value when they first view it, which would be more difficult with an empty library. 
+- Beyond the library's default books, each new book will come from the "add book" button and its corresponding form. 
 ## What’s the desired output?
 ## Given your inputs, what are the steps necessary to return the desired output?
