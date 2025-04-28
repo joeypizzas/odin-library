@@ -1,2 +1,29 @@
 /* CSS for Odin Library */
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#title-container {
+    background-color: #FFF8F0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#title {
+    font-size: 3rem;
+    color: #5C4033;
+    padding: 1rem;
+}
