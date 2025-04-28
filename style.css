@@ -25,5 +25,40 @@ body {
 #title {
     font-size: 3rem;
     color: #5C4033;
-    padding: 1rem;
+    padding: 2rem;
+}
+
+#books-container {
+    background-color: #FFE5D9;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: .25rem 1.5rem .25rem 1.5rem;
+}
+
+#books-header {
+    color: #5C4033;
+    font-size: 2rem;
+}
+
+#footer-container {
+    background-color: #FFDDD2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer {
+    color: #4B2E2A;
+    padding: 1.25rem;
+}
+
+a {
+    color: #C97B63;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F4A261;
 }
