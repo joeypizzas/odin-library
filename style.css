@@ -59,6 +59,19 @@ body {
     background-color: #D89078;
 }
 
+#book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 1.5rem;
+    padding: .75rem 0rem 1rem 0rem;
+}
+
+.book {
+    height: 200px;
+    background-color: #FFF8F0;
+    border-radius: 5px;
+}
+
 #footer-container {
     background-color: #FFDDD2;
     display: flex;
