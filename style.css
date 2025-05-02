@@ -42,8 +42,21 @@ body {
 #books-subheader {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: #8B5E3C;
     padding-top: .25rem;
+}
+
+#new-book-button {
+    background-color: #C97B63;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: .55rem 1rem .55rem 1rem;
+}
+
+#new-book-button:hover {
+    background-color: #D89078;
 }
 
 #footer-container {
