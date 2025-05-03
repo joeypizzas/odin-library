@@ -29,6 +29,7 @@ body {
 }
 
 #books-container {
+    flex: 1;
     background-color: #FFE5D9;
     display: flex;
     flex-direction: column;
