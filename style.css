@@ -105,6 +105,7 @@ body {
 .book-button-row {
     display: flex;
     gap: .5rem;
+    justify-content: center;
 }
 
 .book-button {
