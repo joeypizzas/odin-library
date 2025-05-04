@@ -121,6 +121,28 @@ body {
     background-color: #D89078;
 }
 
+dialog {
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    max-width: 90%;
+    min-height: 200px;
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 #footer-container {
     background-color: #FFDDD2;
     display: flex;

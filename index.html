@@ -19,6 +19,21 @@
         </div>
         <div id="book-list"></div>
     </div>
+    <dialog open>
+        <div>Add book</div>
+        <div>Enter your book details.</div>
+        <form action="/submit" method="POST">
+            <input id="titleField" type="text" name="title" placeholder="Title" maxlength="100" pattern="[A-Za-z0-9 ,.'\-:!?]+" required>
+            <input id="authorField" type="text" name="author" placeholder="Author" maxlength="100" pattern="[A-Za-z .'\-]+" required>
+            <input id="lengthField" type="text" name="length" pattern="\d+" minlength="1" maxlength="100000" placeholder="Pages" required>
+            <select id="statusSelector" name="status" required>
+                <option value="" disabled selected>Status</option>
+                <option value="Read">Read</option>
+                <option value="Unread">Unread</option>
+            </select>
+            <button>Add book</button>
+        </form>
+    </dialog>
     <div id="footer-container">
         <div id="footer">Created by <a href="https://github.com/joeypizzas">joeypizzas</a></div>
     </div>
