@@ -41,17 +41,17 @@ function displayLibrary() {
 
         const bookAuthor = document.createElement("div");
         bookAuthor.classList.add("book-content-item");
-        bookAuthor.textContent = book.author;
+        bookAuthor.textContent = `By: ${book.author}`;
         bookContent.appendChild(bookAuthor);
 
         const bookLength = document.createElement("div");
         bookLength.classList.add("book-content-item");
-        bookLength.textContent = book.length;
+        bookLength.textContent = `Pages: ${book.length}`;
         bookContent.appendChild(bookLength);
 
         const bookStatus = document.createElement("div");
         bookStatus.classList.add("book-content-item");
-        bookStatus.textContent = book.status;
+        bookStatus.textContent = `Status: ${book.status}`;
         bookContent.appendChild(bookStatus);
 
         const bookButtonRow = document.createElement("div");
@@ -71,3 +71,12 @@ function displayLibrary() {
         bookList.appendChild(newBook);
     }
 }
+
+addBookToLibrary("Master of the Senate", "Robert Caro", "1232", "Read");
+addBookToLibrary("American Prometheus", "Kai Bird and Martin J. Sherwin", "721", "Read");
+addBookToLibrary("Death's End", "Cixin Liu", "605", "Read");
+addBookToLibrary("The Nvidia Way", "Tae Kim", "268", "Unread");
+addBookToLibrary("The Warmth of Other Suns", "Isabel Wilkerson", "622", "Read");
+addBookToLibrary("The Road", "Cormac McCarthy", "241", "Unread");
+
+displayLibrary();
