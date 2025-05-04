@@ -72,6 +72,28 @@ function displayLibrary() {
     }
 }
 
+const newBookButton = document.querySelector("#new-book-button");
+
+newBookButton.addEventListener("mousedown", function() {
+    newBookButton.style.backgroundColor = "#A65F48";
+});
+
+newBookButton.addEventListener("mouseup", function() {
+    newBookButton.style.backgroundColor = "#C97B63";
+
+    const titleContainer = document.querySelector("#title-container");
+    titleContainer.classList.add("blur");
+
+    const booksContainer = document.querySelector("#books-container");
+    booksContainer.classList.add("blur");
+
+    const footerContainer = document.querySelector("#footer-container");
+    footerContainer.classList.add("blur");
+
+    const dialog = document.querySelector("dialog");
+    dialog.showModal();
+});
+
 addBookToLibrary("Master of the Senate", "Robert Caro", "1232", "Read");
 addBookToLibrary("American Prometheus", "Kai Bird and Martin J. Sherwin", "721", "Read");
 addBookToLibrary("Death's End", "Cixin Liu", "605", "Read");
