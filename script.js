@@ -24,7 +24,7 @@ function displayLibrary() {
         
         const newBook = document.createElement("div");
         newBook.classList.add("book");
-        newBook.dataset.bookID = book.id;
+        newBook.dataset.bookId = book.id;
 
         const bookTitle = document.createElement("div");
         bookTitle.classList.add("book-title");

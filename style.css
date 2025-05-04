@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: filter 0.3s ease;
 
 }
 
@@ -34,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: .75rem 1.5rem .75rem 1.5rem;
+    transition: filter 0.3s ease;
 }
 
 #books-header {
@@ -123,11 +125,12 @@ body {
 
 dialog {
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -136,11 +139,79 @@ dialog {
     max-width: 90%;
     min-height: 200px;
     margin: 0;
+    background-color: #FFF8F0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+#dialog-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+}
+
+#dialog-header {
+    color: #5C4033;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#dialog-subheader {
+    color: #5C4033;
+}
+
+#dialog-form {
+    display: flex;
+    flex-direction: column;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    gap: .5rem;
+}
+
+.form-field {
+    background-color: #FFFFFF;
+    border: 2px solid #C97B63;
+    color: #8B5E3C;
+    padding: 0.55rem;
+    border-radius: 6px;
+    outline: none;
+}
+
+.form-field::placeholder {
+    color: #8B5E3C;
+    opacity: 0.7;
+}
+
+.form-field:focus {
+    border-color: #F4A261;
+}
+
+.form-field:hover {
+    border-color: #F4A261;
+}
+
+.form-field:user-invalid {
+    border-color: #C62828;
+}
+
+select {
+    background-color: #FFFFFF;
+    border: 2px solid #C97B63;
+    color: #8B5E3C;
+    padding: 0.5rem;
+    border-radius: 6px;
+    outline: none;
+}
+
+select:hover {
+    border-color: #F4A261;
 }
 
 #footer-container {
@@ -148,6 +219,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: filter 0.3s ease;
 }
 
 #footer {
