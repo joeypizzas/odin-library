@@ -83,7 +83,8 @@
     - For each book, it creates the necessary HTML structure for the book card and inserts it into the appropriate section via the DOM with the correct styling. 
 9. Create the logic for the new book button. 
     - Add event listener on the button. 
-    - Clicking sets the dialog with the form status so it appears in the page. 
+    - Clicking sets the dialog with the form status so it appears in the page.
+    - Clicking it adds blur to rest of page. 
 10. Handle the submission of the new book form. 
     - Submitting the form doesn't send data to the server. 
     - Event listener on the submit button. 
