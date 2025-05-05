@@ -52,16 +52,12 @@ body {
     padding-top: .25rem;
 }
 
-#new-book-button {
+.new-book-button {
     background-color: #C97B63;
     color: #FFFFFF;
     border: none;
     border-radius: 5px;
     padding: .55rem 1rem .55rem 1rem;
-}
-
-#new-book-button:hover {
-    background-color: #D89078;
 }
 
 #book-list {
@@ -117,10 +113,6 @@ body {
     border: none;
     border-radius: 5px;
     padding: .55rem .55rem .55rem .55rem;
-}
-
-.book-button:hover {
-    background-color: #D89078;
 }
 
 dialog[open] {

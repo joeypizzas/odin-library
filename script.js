@@ -72,7 +72,7 @@ function displayLibrary() {
     }
 }
 
-const newBookButton = document.querySelector("#new-book-button");
+const newBookButton = document.querySelector(".new-book-button");
 const titleContainer = document.querySelector("#title-container");
 const booksContainer = document.querySelector("#books-container");
 const footerContainer = document.querySelector("#footer-container");
