@@ -73,25 +73,34 @@ function displayLibrary() {
 }
 
 const newBookButton = document.querySelector("#new-book-button");
+const titleContainer = document.querySelector("#title-container");
+const booksContainer = document.querySelector("#books-container");
+const footerContainer = document.querySelector("#footer-container");
+const dialog = document.querySelector("dialog");
+const dialogBackground = document.querySelectorAll(".dialog-background");
 
+// Feedback on new book button click
 newBookButton.addEventListener("mousedown", function() {
     newBookButton.style.backgroundColor = "#A65F48";
 });
 
+// Opens and focuses new book dialog
 newBookButton.addEventListener("mouseup", function() {
     newBookButton.style.backgroundColor = "#C97B63";
-
-    const titleContainer = document.querySelector("#title-container");
     titleContainer.classList.add("blur");
-
-    const booksContainer = document.querySelector("#books-container");
     booksContainer.classList.add("blur");
-
-    const footerContainer = document.querySelector("#footer-container");
     footerContainer.classList.add("blur");
+    dialog.show();
+});
 
-    const dialog = document.querySelector("dialog");
-    dialog.showModal();
+// Closes new book dialog with background click
+dialogBackground.forEach(container => {
+    container.addEventListener("mouseup", () => {
+        dialog.close();
+        titleContainer.classList.remove("blur");
+        booksContainer.classList.remove("blur");
+        footerContainer.classList.remove("blur");
+    });
 });
 
 addBookToLibrary("Master of the Senate", "Robert Caro", "1232", "Read");
