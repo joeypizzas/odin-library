@@ -60,16 +60,23 @@ function displayLibrary() {
 
         const changeStatusButton = document.createElement("button");
         changeStatusButton.classList.add("book-button");
+        changeStatusButton.classList.add("change-status-button");
         changeStatusButton.textContent = "Change status";
         bookButtonRow.appendChild(changeStatusButton);
 
         const removeBookButton = document.createElement("button");
         removeBookButton.classList.add("book-button");
+        removeBookButton.classList.add("remove-book-button");
         removeBookButton.textContent = "Remove book";
         bookButtonRow.appendChild(removeBookButton);
 
         bookList.appendChild(newBook);
     }
+}
+
+function removeBookFromLibrary(id) {
+    const bookToRemove = library.findIndex(book => book.id === id);
+    library.splice(bookToRemove, 1);
 }
 
 const newBookButton = document.querySelector(".new-book-button");
