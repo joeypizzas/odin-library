@@ -80,6 +80,16 @@ function displayLibrary() {
         removeBookButton.addEventListener("mouseout", () => {
             removeBookButton.style.backgroundColor = "#C97B63";
         });
+        removeBookButton.addEventListener("mousedown", function() {
+            removeBookButton.style.backgroundColor = "#A65F48";
+        });
+        removeBookButton.addEventListener("mouseup", function(event) {
+            removeBookButton.style.backgroundColor = "#C97B63";
+            const bookIDToRemove = event.target.closest("[data-book-id]").dataset.bookId;
+            removeBookFromLibrary(bookIDToRemove);
+            const bookToRemove = event.target.closest("[data-book-id]");
+            bookToRemove.remove();
+        });
         bookButtonRow.appendChild(removeBookButton);
 
         bookList.appendChild(newBook);
@@ -106,7 +116,6 @@ newBookButton.addEventListener("mouseout", () => {
     newBookButton.style.backgroundColor = "#C97B63";
 });
 
-// Feedback on new book button click
 newBookButton.addEventListener("mousedown", function() {
     newBookButton.style.backgroundColor = "#A65F48";
 });
