@@ -68,6 +68,18 @@ function displayLibrary() {
         changeStatusButton.addEventListener("mouseout", () => {
             changeStatusButton.style.backgroundColor = "#C97B63";
         });
+        changeStatusButton.addEventListener("mousedown", function() {
+            changeStatusButton.style.backgroundColor = "#A65F48";
+        });
+        changeStatusButton.addEventListener("mouseup", function() {
+            changeStatusButton.style.backgroundColor = "#C97B63";
+            if (book.status === "Read") {
+                book.status = "Unread";
+            } else {
+                book.status = "Read";
+            }
+            bookStatus.textContent = `Status: ${book.status}`;
+        });
         bookButtonRow.appendChild(changeStatusButton);
 
         const removeBookButton = document.createElement("button");
@@ -87,8 +99,7 @@ function displayLibrary() {
             removeBookButton.style.backgroundColor = "#C97B63";
             const bookIDToRemove = event.target.closest("[data-book-id]").dataset.bookId;
             removeBookFromLibrary(bookIDToRemove);
-            const bookToRemove = event.target.closest("[data-book-id]");
-            bookToRemove.remove();
+            newBook.remove();
         });
         bookButtonRow.appendChild(removeBookButton);
 
