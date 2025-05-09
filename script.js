@@ -62,12 +62,24 @@ function displayLibrary() {
         changeStatusButton.classList.add("book-button");
         changeStatusButton.classList.add("change-status-button");
         changeStatusButton.textContent = "Change status";
+        changeStatusButton.addEventListener("mouseover", () => {
+            changeStatusButton.style.backgroundColor = "#D89078";
+        });
+        changeStatusButton.addEventListener("mouseout", () => {
+            changeStatusButton.style.backgroundColor = "#C97B63";
+        });
         bookButtonRow.appendChild(changeStatusButton);
 
         const removeBookButton = document.createElement("button");
         removeBookButton.classList.add("book-button");
         removeBookButton.classList.add("remove-book-button");
         removeBookButton.textContent = "Remove book";
+        removeBookButton.addEventListener("mouseover", () => {
+            removeBookButton.style.backgroundColor = "#D89078";
+        });
+        removeBookButton.addEventListener("mouseout", () => {
+            removeBookButton.style.backgroundColor = "#C97B63";
+        });
         bookButtonRow.appendChild(removeBookButton);
 
         bookList.appendChild(newBook);
@@ -85,6 +97,14 @@ const booksContainer = document.querySelector("#books-container");
 const footerContainer = document.querySelector("#footer-container");
 const dialog = document.querySelector("dialog");
 const dialogBackground = document.querySelectorAll(".dialog-background");
+
+newBookButton.addEventListener("mouseover", () => {
+    newBookButton.style.backgroundColor = "#D89078";
+});
+
+newBookButton.addEventListener("mouseout", () => {
+    newBookButton.style.backgroundColor = "#C97B63";
+});
 
 // Feedback on new book button click
 newBookButton.addEventListener("mousedown", function() {
