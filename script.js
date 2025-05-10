@@ -2,7 +2,6 @@
 
 const library = []; 
 
-// Object constructor for creating new book
 function Book(title, author, length, status) {
     this.title = title;
     this.author = author;
@@ -11,7 +10,6 @@ function Book(title, author, length, status) {
     this.id = crypto.randomUUID();
 }
 
-// Creates new book and adds it to library 
 function addBookToLibrary(title, author, length, status) {
     const book = new Book (title, author, length, status);
     library.push(book);
@@ -56,7 +54,7 @@ function displayLibrary() {
         bookButtonRow.classList.add("book-button-row");
         bookBody.appendChild(bookButtonRow);
 
-        const changeStatusButton = document.createElement("button");
+        const changeStatusButton = document.createElement("button"); // Adds change status button and handles status change
         changeStatusButton.classList.add("book-button");
         changeStatusButton.classList.add("change-status-button");
         changeStatusButton.textContent = "Change status";
@@ -80,7 +78,7 @@ function displayLibrary() {
         });
         bookButtonRow.appendChild(changeStatusButton);
 
-        const removeBookButton = document.createElement("button");
+        const removeBookButton = document.createElement("button"); // Adds remove book button and handles removal
         removeBookButton.classList.add("book-button");
         removeBookButton.classList.add("remove-book-button");
         removeBookButton.textContent = "Remove book";
@@ -105,6 +103,7 @@ function displayLibrary() {
     }
 }
 
+// Displays individual new book from library
 function displayNewBook(title, author, length, status) {
     const newBook = document.createElement("div");
     newBook.classList.add("book");
@@ -142,7 +141,7 @@ function displayNewBook(title, author, length, status) {
     bookButtonRow.classList.add("book-button-row");
     bookBody.appendChild(bookButtonRow);
 
-    const changeStatusButton = document.createElement("button");
+    const changeStatusButton = document.createElement("button"); // Change status button for individual new book
     changeStatusButton.classList.add("book-button");
     changeStatusButton.classList.add("change-status-button");
     changeStatusButton.textContent = "Change status";
@@ -166,7 +165,7 @@ function displayNewBook(title, author, length, status) {
     });
     bookButtonRow.appendChild(changeStatusButton);
 
-    const removeBookButton = document.createElement("button");
+    const removeBookButton = document.createElement("button"); // Remove book button for individual new book
     removeBookButton.classList.add("book-button");
     removeBookButton.classList.add("remove-book-button");
     removeBookButton.textContent = "Remove book";
@@ -247,6 +246,7 @@ submitBookButton.addEventListener("mousedown", () => {
     submitBookButton.style.backgroundColor = "#A65F48";
 });
 
+// Adds new book to library, closes dialog, displays new book
 submitBookButton.addEventListener("mouseup", () => {
     submitBookButton.style.backgroundColor = "#C97B63";
     addBookToLibrary(titleField.value, authorField.value, lengthField.value, statusSelector.value);
