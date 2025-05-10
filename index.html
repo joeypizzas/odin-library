@@ -26,15 +26,15 @@
         </div>
         <div id="dialog-form">
             <form action="/submit" method="POST">
-                <input class="form-field" type="text" name="title" placeholder="Title" maxlength="100" pattern="[A-Za-z0-9 ,.'\-:!?]+" required>
-                <input class="form-field" type="text" name="author" placeholder="Author" maxlength="100" pattern="[A-Za-z .'\-]+" required>
-                <input class="form-field" type="text" name="length" pattern="\d+" minlength="1" maxlength="100000" placeholder="Pages" required>
-                <select id="statusSelector" name="status" required>
+                <input id="title-field" class="form-field" type="text" name="title" placeholder="Title" maxlength="100" pattern="[A-Za-z0-9 ,.'\-:!?]+" required>
+                <input id="author-field" class="form-field" type="text" name="author" placeholder="Author" maxlength="100" pattern="[A-Za-z .'\-]+" required>
+                <input id="length-field" class="form-field" type="text" name="length" pattern="\d+" minlength="1" maxlength="100000" placeholder="Pages" required>
+                <select id="status-selector" name="status" required>
                     <option value="" disabled selected>Status</option>
                     <option value="Read">Read</option>
                     <option value="Unread">Unread</option>
                 </select>
-                <button class="book-button">Add book</button>
+                <button class="book-button" id="submit-book-button">Add book</button>
             </form>
         </div>
     </dialog>

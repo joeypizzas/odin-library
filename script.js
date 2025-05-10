@@ -20,8 +20,6 @@ function addBookToLibrary(title, author, length, status) {
 // Loops through library and displays each book on page
 function displayLibrary() {
     for (const book of library) {
-        const bookList = document.querySelector("#book-list")
-        
         const newBook = document.createElement("div");
         newBook.classList.add("book");
         newBook.dataset.bookId = book.id;
@@ -107,17 +105,109 @@ function displayLibrary() {
     }
 }
 
+function displayNewBook(title, author, length, status) {
+    const newBook = document.createElement("div");
+    newBook.classList.add("book");
+    newBook.dataset.bookId = library.at(-1).id;
+
+    const bookTitle = document.createElement("div");
+    bookTitle.classList.add("book-title");
+    bookTitle.textContent = title;
+    newBook.appendChild(bookTitle);
+
+    const bookBody = document.createElement("div");
+    bookBody.classList.add("book-body");
+    newBook.appendChild(bookBody);
+
+    const bookContent = document.createElement("div");
+    bookContent.classList.add("book-content");
+    bookBody.appendChild(bookContent);
+
+    const bookAuthor = document.createElement("div");
+    bookAuthor.classList.add("book-content-item");
+    bookAuthor.textContent = `By: ${author}`;
+    bookContent.appendChild(bookAuthor);
+
+    const bookLength = document.createElement("div");
+    bookLength.classList.add("book-content-item");
+    bookLength.textContent = `Pages: ${length}`;
+    bookContent.appendChild(bookLength);
+
+    const bookStatus = document.createElement("div");
+    bookStatus.classList.add("book-content-item");
+    bookStatus.textContent = `Status: ${status}`;
+    bookContent.appendChild(bookStatus);
+
+    const bookButtonRow = document.createElement("div");
+    bookButtonRow.classList.add("book-button-row");
+    bookBody.appendChild(bookButtonRow);
+
+    const changeStatusButton = document.createElement("button");
+    changeStatusButton.classList.add("book-button");
+    changeStatusButton.classList.add("change-status-button");
+    changeStatusButton.textContent = "Change status";
+    changeStatusButton.addEventListener("mouseover", () => {
+        changeStatusButton.style.backgroundColor = "#D89078";
+    });
+    changeStatusButton.addEventListener("mouseout", () => {
+        changeStatusButton.style.backgroundColor = "#C97B63";
+    });
+    changeStatusButton.addEventListener("mousedown", function() {
+        changeStatusButton.style.backgroundColor = "#A65F48";
+    });
+    changeStatusButton.addEventListener("mouseup", function() {
+        changeStatusButton.style.backgroundColor = "#C97B63";
+        if (status === "Read") {
+            status = "Unread";
+        } else {
+            status = "Read";
+        }
+        bookStatus.textContent = `Status: ${status}`;
+    });
+    bookButtonRow.appendChild(changeStatusButton);
+
+    const removeBookButton = document.createElement("button");
+    removeBookButton.classList.add("book-button");
+    removeBookButton.classList.add("remove-book-button");
+    removeBookButton.textContent = "Remove book";
+    removeBookButton.addEventListener("mouseover", () => {
+        removeBookButton.style.backgroundColor = "#D89078";
+    });
+    removeBookButton.addEventListener("mouseout", () => {
+        removeBookButton.style.backgroundColor = "#C97B63";
+    });
+    removeBookButton.addEventListener("mousedown", function() {
+        removeBookButton.style.backgroundColor = "#A65F48";
+    });
+    removeBookButton.addEventListener("mouseup", function(event) {
+        removeBookButton.style.backgroundColor = "#C97B63";
+        const bookIDToRemove = event.target.closest("[data-book-id]").dataset.bookId;
+        removeBookFromLibrary(bookIDToRemove);
+        newBook.remove();
+    });
+    bookButtonRow.appendChild(removeBookButton);
+
+    bookList.appendChild(newBook);
+} 
+
 function removeBookFromLibrary(id) {
     const bookToRemove = library.findIndex(book => book.id === id);
     library.splice(bookToRemove, 1);
 }
 
+const bookList = document.querySelector("#book-list")
 const newBookButton = document.querySelector(".new-book-button");
 const titleContainer = document.querySelector("#title-container");
 const booksContainer = document.querySelector("#books-container");
 const footerContainer = document.querySelector("#footer-container");
+const form = document.querySelector("form");
 const dialog = document.querySelector("dialog");
 const dialogBackground = document.querySelectorAll(".dialog-background");
+const titleField = document.querySelector("#title-field");
+const authorField = document.querySelector("#author-field");
+const lengthField = document.querySelector("#length-field");
+const statusSelector = document.querySelector("#status-selector");
+const submitBookButton = document.querySelector("#submit-book-button");
 
 newBookButton.addEventListener("mouseover", () => {
     newBookButton.style.backgroundColor = "#D89078";
@@ -138,6 +228,32 @@ newBookButton.addEventListener("mouseup", function() {
     booksContainer.classList.add("blur");
     footerContainer.classList.add("blur");
     dialog.show();
+});
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+});
+
+submitBookButton.addEventListener("mouseover", () => {
+    submitBookButton.style.backgroundColor = "#D89078";
+});
+
+submitBookButton.addEventListener("mouseout", () => {
+    submitBookButton.style.backgroundColor = "#C97B63";
+});
+
+submitBookButton.addEventListener("mousedown", () => {
+    submitBookButton.style.backgroundColor = "#A65F48";
+});
+
+submitBookButton.addEventListener("mouseup", () => {
+    submitBookButton.style.backgroundColor = "#C97B63";
+    addBookToLibrary(titleField.value, authorField.value, lengthField.value, statusSelector.value);
+    dialog.close();
+    titleContainer.classList.remove("blur");
+    booksContainer.classList.remove("blur");
+    footerContainer.classList.remove("blur");
+    displayNewBook(titleField.value, authorField.value, lengthField.value, statusSelector.value);
 });
 
 // Closes new book dialog with background click
