@@ -227,6 +227,7 @@ newBookButton.addEventListener("mouseup", function() {
     titleContainer.classList.add("blur");
     booksContainer.classList.add("blur");
     footerContainer.classList.add("blur");
+    form.reset();
     dialog.show();
 });
 
