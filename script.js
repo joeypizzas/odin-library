@@ -238,6 +238,45 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
+titleField.addEventListener("blur", () => {
+  titleField.setCustomValidity("");
+  if (!titleField.checkValidity()) {
+    titleField.setCustomValidity("Enter the book title");
+    titleField.reportValidity();
+  } else {
+    titleField.setCustomValidity("");
+  }
+});
+titleField.addEventListener("input", () => {
+  titleField.setCustomValidity("");
+});
+
+authorField.addEventListener("blur", () => {
+  authorField.setCustomValidity("");
+  if (!authorField.checkValidity()) {
+    authorField.setCustomValidity("Enter the author");
+    authorField.reportValidity();
+  } else {
+    authorField.setCustomValidity("");
+  }
+});
+authorField.addEventListener("input", () => {
+  authorField.setCustomValidity("");
+});
+
+lengthField.addEventListener("blur", () => {
+  lengthField.setCustomValidity("");
+  if (!lengthField.checkValidity()) {
+    lengthField.setCustomValidity("Enter the pages");
+    lengthField.reportValidity();
+  } else {
+    lengthField.setCustomValidity("");
+  }
+});
+lengthField.addEventListener("input", () => {
+  lengthField.setCustomValidity("");
+});
+
 submitBookButton.addEventListener("mouseover", () => {
   submitBookButton.style.backgroundColor = "#D89078";
 });
@@ -252,23 +291,28 @@ submitBookButton.addEventListener("mousedown", () => {
 
 // Adds new book to library, closes dialog, displays new book
 submitBookButton.addEventListener("mouseup", () => {
-  submitBookButton.style.backgroundColor = "#C97B63";
-  addBookToLibrary(
-    titleField.value,
-    authorField.value,
-    lengthField.value,
-    statusSelector.value
-  );
-  dialog.close();
-  titleContainer.classList.remove("blur");
-  booksContainer.classList.remove("blur");
-  footerContainer.classList.remove("blur");
-  displayNewBook(
-    titleField.value,
-    authorField.value,
-    lengthField.value,
-    statusSelector.value
-  );
+  if (!form.checkValidity()) {
+    console.log("test");
+    form.reportValidity();
+  } else {
+    submitBookButton.style.backgroundColor = "#C97B63";
+    addBookToLibrary(
+      titleField.value,
+      authorField.value,
+      lengthField.value,
+      statusSelector.value
+    );
+    dialog.close();
+    titleContainer.classList.remove("blur");
+    booksContainer.classList.remove("blur");
+    footerContainer.classList.remove("blur");
+    displayNewBook(
+      titleField.value,
+      authorField.value,
+      lengthField.value,
+      statusSelector.value
+    );
+  }
 });
 
 // Closes new book dialog with background click
